@@ -48,6 +48,32 @@ st.markdown("""
         padding: 1rem;
         color: #721c24;
     }
+    .contact-box {
+        background-color: #1e3a5f;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-top: 2rem;
+        color: #ffffff;
+    }
+    .contact-box h4 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    .contact-box p {
+        color: #ffffff;
+        margin: 0.3rem 0;
+    }
+    .contact-box a {
+        color: #b0b0b0;
+        text-decoration: underline;
+    }
+    .contact-box a:hover {
+        text-decoration: underline;
+    }
+    .contact-box .email-text {
+        color: #b0b0b0;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -72,6 +98,17 @@ def main():
             options=["Live Monitor", "Sample Failure Scenarios", "Failure Insights & Analytics", "About Project"],
             label_visibility="collapsed"
         )
+        
+        # Contact Developer section
+        st.markdown("---")
+        st.markdown("""
+        <div class="contact-box">
+            <h4>Contact Developer</h4>
+            <p style="font-weight: bold;">Emre AÇAR</p>
+            <p><a href="https://www.linkedin.com/in/emreacarc/" target="_blank">My LinkedIn Profile</a></p>
+            <p class="email-text">ar.emreacar@gmail.com</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     # Load models (once, outside of page selection)
     model, preprocessor = load_model_and_preprocessor()
