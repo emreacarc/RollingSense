@@ -302,7 +302,7 @@ class DataPreprocessor:
                 'feature_names': self.feature_names,
                 'correlation_info': self.correlation_info,
                 'columns_to_drop': self.columns_to_drop
-            }, f)
+            }, f, protocol=4)  # Protocol 4 for Python 3.8+ compatibility
     
     def load(self, file_path):
         """
@@ -313,12 +313,17 @@ class DataPreprocessor:
         file_path : str or Path
             Path to load the preprocessor from
         """
-        with open(file_path, 'rb') as f:
-            data = pickle.load(f)
-            self.column_transformer = data['column_transformer']
-            self.feature_names = data['feature_names']
-            self.correlation_info = data.get('correlation_info', None)
-            self.columns_to_drop = data.get('columns_to_drop', [])
+        try:
+            with open(file_path, 'rb') as f:
+                data = pickle.load(f)
+                self.column_transformer = data['column_transformer']
+                self.feature_names = data['feature_names']
+                self.correlation_info = data.get('correlation_info', None)
+                self.columns_to_drop = data.get('columns_to_drop', [])
+        except (pickle.UnpicklingError, EOFError, AttributeError, ModuleNotFoundError) as e:
+            raise RuntimeError(f"Error loading preprocessor. This may be due to Python version incompatibility. Original error: {str(e)}")
+        except Exception as e:
+            raise RuntimeError(f"Unexpected error loading preprocessor: {str(e)}")
 
 
 def preprocess_pipeline(data_path=None):

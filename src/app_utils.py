@@ -28,6 +28,14 @@ def load_model_and_preprocessor():
     except FileNotFoundError as e:
         st.error(f"Model or preprocessor not found: {e}. Please train the model first by running: python train.py")
         return None, None
+    except (pickle.UnpicklingError, EOFError, AttributeError, ModuleNotFoundError, RuntimeError) as e:
+        st.error(f"Error loading model files. This may be due to Python version incompatibility.")
+        st.error(f"Error details: {str(e)}")
+        st.info("💡 **Solution:** Please re-train the models locally with a compatible Python version (3.8-3.11 recommended), then push the updated model files to GitHub.")
+        return None, None
+    except Exception as e:
+        st.error(f"Unexpected error loading models: {str(e)}")
+        return None, None
 
 
 def load_model_report():

@@ -246,7 +246,7 @@ class ModelTrainer:
             raise ValueError("No model selected to save.")
         
         with open(file_path, 'wb') as f:
-            pickle.dump(self.selected_model, f)
+            pickle.dump(self.selected_model, f, protocol=4)  # Protocol 4 for Python 3.8+ compatibility
         
         print(f"Model saved to {file_path}")
     

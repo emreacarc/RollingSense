@@ -120,7 +120,7 @@ class FailureIndicatorPredictor:
             pickle.dump({
                 'models': self.models,
                 'cv_scores': self.cv_scores
-            }, f)
+            }, f, protocol=4)  # Protocol 4 for Python 3.8+ compatibility
         print(f"Failure indicator models saved to {file_path}")
     
     def load(self, file_path):
@@ -132,11 +132,16 @@ class FailureIndicatorPredictor:
         file_path : str or Path
             Path to load the models from
         """
-        with open(file_path, 'rb') as f:
-            data = pickle.load(f)
-            self.models = data['models']
-            self.cv_scores = data.get('cv_scores', {})
-        print(f"Failure indicator models loaded from {file_path}")
+        try:
+            with open(file_path, 'rb') as f:
+                data = pickle.load(f)
+                self.models = data['models']
+                self.cv_scores = data.get('cv_scores', {})
+            print(f"Failure indicator models loaded from {file_path}")
+        except (pickle.UnpicklingError, EOFError, AttributeError, ModuleNotFoundError) as e:
+            raise RuntimeError(f"Error loading failure indicator models. This may be due to Python version incompatibility. Original error: {str(e)}")
+        except Exception as e:
+            raise RuntimeError(f"Unexpected error loading failure indicator models: {str(e)}")
 
 
 def train_failure_indicators(X, df_original, preprocessor, cv_folds=10):
