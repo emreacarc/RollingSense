@@ -74,6 +74,22 @@ st.markdown("""
     .contact-box .email-text {
         color: #b0b0b0;
     }
+    /* Darker green for primary buttons */
+    .stButton > button[kind="primary"] {
+        background-color: #006400 !important;
+        border-color: #006400 !important;
+        color: white !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background-color: #004d00 !important;
+        border-color: #004d00 !important;
+        color: white !important;
+    }
+    .stButton > button[kind="primary"]:focus:not(:active) {
+        background-color: #006400 !important;
+        border-color: #006400 !important;
+        color: white !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
