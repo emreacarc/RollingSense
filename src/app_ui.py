@@ -984,19 +984,19 @@ def render_failure_insights_tab():
                 max_val = var_data.max()
                 num_bins = 8
                 
-                # Create smaller histogram with dark theme (high resolution)
+                # Create smaller histogram with light theme (high resolution)
                 fig, ax = plt.subplots(figsize=(3, 1.25), dpi=200)
-                fig.patch.set_facecolor('black')
-                ax.set_facecolor('black')
-                ax.hist(var_data, bins=num_bins, edgecolor='white', alpha=0.7, color='lightblue')
-                ax.set_xlabel(var1, fontsize=4, color='white')
-                ax.set_ylabel('Failure Count', fontsize=4, color='white')
-                ax.set_title(f'{var1}', fontsize=5, color='white')
-                ax.grid(True, alpha=0.3, color='white')
-                ax.tick_params(labelsize=4, colors='white')
-                # Make spines white
+                fig.patch.set_facecolor('white')
+                ax.set_facecolor('white')
+                ax.hist(var_data, bins=num_bins, edgecolor='black', alpha=0.7, color='lightblue')
+                ax.set_xlabel(var1, fontsize=4, color='black')
+                ax.set_ylabel('Failure Count', fontsize=4, color='black')
+                ax.set_title(f'{var1}', fontsize=5, color='black')
+                ax.grid(True, alpha=0.3, color='black')
+                ax.tick_params(labelsize=4, colors='black')
+                # Make spines black
                 for spine in ax.spines.values():
-                    spine.set_color('white')
+                    spine.set_color('black')
                 
                 # Format x-axis labels to show 1 decimal place
                 ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{x:.1f}'))
@@ -1016,19 +1016,19 @@ def render_failure_insights_tab():
                 max_val = var_data.max()
                 num_bins = 8
                 
-                # Create smaller histogram with dark theme (high resolution)
+                # Create smaller histogram with light theme (high resolution)
                 fig, ax = plt.subplots(figsize=(3, 1.25), dpi=200)
-                fig.patch.set_facecolor('black')
-                ax.set_facecolor('black')
-                ax.hist(var_data, bins=num_bins, edgecolor='white', alpha=0.7, color='lightblue')
-                ax.set_xlabel(var2, fontsize=4, color='white')
-                ax.set_ylabel('Failure Count', fontsize=4, color='white')
-                ax.set_title(f'{var2}', fontsize=5, color='white')
-                ax.grid(True, alpha=0.3, color='white')
-                ax.tick_params(labelsize=4, colors='white')
-                # Make spines white
+                fig.patch.set_facecolor('white')
+                ax.set_facecolor('white')
+                ax.hist(var_data, bins=num_bins, edgecolor='black', alpha=0.7, color='lightblue')
+                ax.set_xlabel(var2, fontsize=4, color='black')
+                ax.set_ylabel('Failure Count', fontsize=4, color='black')
+                ax.set_title(f'{var2}', fontsize=5, color='black')
+                ax.grid(True, alpha=0.3, color='black')
+                ax.tick_params(labelsize=4, colors='black')
+                # Make spines black
                 for spine in ax.spines.values():
-                    spine.set_color('white')
+                    spine.set_color('black')
                 
                 # Format x-axis labels to show 1 decimal place
                 ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{x:.1f}'))
