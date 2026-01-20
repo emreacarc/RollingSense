@@ -2,33 +2,33 @@
     "models": {
         "Logistic Regression": {
             "Name": "Logistic Regression",
-            "CV_Accuracy": 0.9698999999999998,
-            "CV_F1_Score": 0.635956456070902,
-            "Inference_Time_ms": 0.6685256958007812
+            "CV_Accuracy": 0.9699,
+            "CV_F1_Score": 0.631739018210054,
+            "Inference_Time_ms": 0.7863044738769531
         },
         "Random Forest": {
             "Name": "Random Forest",
-            "CV_Accuracy": 0.9858,
-            "CV_F1_Score": 0.8716451427614539,
-            "Inference_Time_ms": 41.478633880615234
+            "CV_Accuracy": 0.9867000000000001,
+            "CV_F1_Score": 0.8755047752086462,
+            "Inference_Time_ms": 46.751976013183594
         },
         "XGBoost": {
             "Name": "XGBoost",
-            "CV_Accuracy": 0.986,
-            "CV_F1_Score": 0.8812478171085152,
-            "Inference_Time_ms": 2.3725032806396484
+            "CV_Accuracy": 0.9859,
+            "CV_F1_Score": 0.8809894626711736,
+            "Inference_Time_ms": 2.621173858642578
         },
         "LightGBM": {
             "Name": "LightGBM",
-            "CV_Accuracy": 0.9883000000000001,
-            "CV_F1_Score": 0.8994787221924977,
-            "Inference_Time_ms": 5.366325378417969
+            "CV_Accuracy": 0.9881,
+            "CV_F1_Score": 0.9029049924951046,
+            "Inference_Time_ms": 4.526376724243164
         },
         "CatBoost": {
             "Name": "CatBoost",
-            "CV_Accuracy": 0.9864,
-            "CV_F1_Score": 0.8841773111112623,
-            "Inference_Time_ms": 28.3658504486084
+            "CV_Accuracy": 0.9865999999999999,
+            "CV_F1_Score": 0.8794002740213218,
+            "Inference_Time_ms": 28.694629669189453
         }
     },
     "selected_best_model": "LightGBM",
