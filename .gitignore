@@ -44,9 +44,9 @@ venv.bak/
 # Model files (too large for GitHub)
 # Note: For Streamlit Cloud deployment, you may need to commit these files
 # Temporarily remove these lines, commit models, then restore
-# models/*.pkl
-# models/*.csv
-# models/*.json
+models/*.pkl
+models/*.csv
+models/*.json
 
 # Data files (too large and sensitive)
 data/raw/*.csv
